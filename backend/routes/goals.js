@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const Goal = require('../models/Common'); // ✅ Use the renamed model
+const Goal = require('../models/Common'); 
 
-// GET /goals - Fetch all goals
+// GET /goals Fetch all goals
 router.get('/', async (req, res) => {
   try {
     const goals = await Goal.find();

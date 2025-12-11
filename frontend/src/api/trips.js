@@ -1,0 +1,33 @@
+import axios from "axios";
+
+const BASE_URL = "http://localhost:5001/trips";
+
+// Create a trip
+export const createTrip = async (trip) => {
+  const res = await axios.post(BASE_URL, trip);
+  return res.data;
+};
+
+// Get all trips
+export const getAllTrips = async () => {
+  const res = await axios.get(BASE_URL);
+  return res.data;
+};
+
+// Get upcoming trips
+export const getUpcomingTrips = async () => {
+  const res = await axios.get(`${BASE_URL}/upcoming`);
+  return res.data;
+};
+
+// Get past trips
+export const getPastTrips = async () => {
+  const res = await axios.get(`${BASE_URL}/past`);
+  return res.data;
+};
+
+// Delete a trip
+export const deleteTrip = async (id) => {
+  const res = await axios.delete(`${BASE_URL}/${id}`);
+  return res.data;
+};
