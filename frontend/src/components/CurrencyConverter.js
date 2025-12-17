@@ -1,3 +1,4 @@
+import "./CurrencyConverter.css";
 import { useState } from "react";
 import { convertCurrency } from "../api/currencyApi";
 
@@ -11,14 +12,13 @@ const currencies = [
   "JPY", // Japan
   "CNY", // China
   "IDR", // Indonesia
-  "AED", // Dubai / UAE
+  "AED", // UAE
   "KWD", // Kuwait
   "SAR", // Saudi Arabia
   "QAR", // Qatar
   "CAD", // Canada
   "AUD"  // Australia
 ];
-
 
 function CurrencyConverter() {
   const [base, setBase] = useState("USD");
@@ -33,23 +33,14 @@ function CurrencyConverter() {
       const data = await convertCurrency(base, target, amount);
       setResult(data.convertedAmount);
     } catch (err) {
-      setError("Conversion failed. Please try again.");
+      setError("Currency conversion failed. Please try again.");
     }
   };
 
   return (
-    <div
-      style={{
-        maxWidth: "420px",
-        margin: "30px auto",
-        padding: "20px",
-        border: "1px solid #ddd",
-        borderRadius: "8px"
-      }}
-    >
+    <div className="converter-container">
       <h2>Currency Converter</h2>
 
-      {/* FROM */}
       <label>From</label>
       <select value={base} onChange={(e) => setBase(e.target.value)}>
         {currencies.map((cur) => (
@@ -59,8 +50,7 @@ function CurrencyConverter() {
         ))}
       </select>
 
-      {/* TO */}
-      <label style={{ marginTop: "10px" }}>To</label>
+      <label>To</label>
       <select value={target} onChange={(e) => setTarget(e.target.value)}>
         {currencies.map((cur) => (
           <option key={cur} value={cur}>
@@ -69,8 +59,7 @@ function CurrencyConverter() {
         ))}
       </select>
 
-      {/* AMOUNT */}
-      <label style={{ marginTop: "10px" }}>Amount</label>
+      <label>Amount</label>
       <input
         type="number"
         min="0"
@@ -78,20 +67,15 @@ function CurrencyConverter() {
         onChange={(e) => setAmount(e.target.value)}
       />
 
-      <button
-        onClick={handleConvert}
-        style={{ marginTop: "15px", width: "100%" }}
-      >
-        Convert
-      </button>
+      <button onClick={handleConvert}>Convert</button>
 
       {result && (
-        <p style={{ marginTop: "15px" }}>
+        <div className="converter-result">
           Converted Amount: <strong>{result}</strong>
-        </p>
+        </div>
       )}
 
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {error && <div className="converter-error">{error}</div>}
     </div>
   );
 }
