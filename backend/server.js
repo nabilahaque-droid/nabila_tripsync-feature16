@@ -15,11 +15,14 @@ const goalRoutes = require('./routes/goals');
 const tripRoutes = require('./routes/trips');
 const expenseRoutes = require('./routes/expenses');
 const journalRoutes = require('./routes/journals');
+const weatherRoutes = require("./routes/weatherRoutes");
+;
 
 app.use('/goals', goalRoutes);
 app.use('/trips', tripRoutes);
 app.use('/expenses', expenseRoutes);
 app.use('/journals', journalRoutes);
+app.use("/api/weather", weatherRoutes);
 
 // Root route
 app.get('/', (req, res) => {
