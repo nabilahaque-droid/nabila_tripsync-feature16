@@ -16,13 +16,14 @@ const tripRoutes = require('./routes/trips');
 const expenseRoutes = require('./routes/expenses');
 const journalRoutes = require('./routes/journals');
 const weatherRoutes = require("./routes/weatherRoutes");
-;
+const langRoutes = require('./routes/langRoutes');
 
 app.use('/goals', goalRoutes);
 app.use('/trips', tripRoutes);
 app.use('/expenses', expenseRoutes);
 app.use('/journals', journalRoutes);
 app.use("/api/weather", weatherRoutes);
+app.use('/api/language', langRoutes);
 
 // Root route
 app.get('/', (req, res) => {
