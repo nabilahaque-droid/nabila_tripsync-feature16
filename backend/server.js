@@ -25,6 +25,35 @@ app.use('/journals', journalRoutes);
 app.use("/api/weather", weatherRoutes);
 app.use('/api/language', langRoutes);
 
+// 3. FR17: TimeZoneDB Implementation
+app.get('/api/timezone/:area/:city', async (req, res) => {
+    const { area, city } = req.params;
+    const apiKey = process.env.TIMEZONE_API_KEY; // Make sure this is in your .env
+    
+    // TimeZoneDB uses "Area/City" format
+    const zone = `${area}/${city}`; 
+    const url = `http://api.timezonedb.com/v2.1/get-time-zone?key=${apiKey}&format=json&by=zone&zone=${zone}`;
+
+    try {
+        const response = await axios.get(url);
+        
+        if (response.data.status === "FAILED") {
+            return res.status(404).json({ message: "Location not found 🌸" });
+        }
+
+        res.json({
+            timezone: response.data.zoneName,
+            datetime: response.data.formatted, 
+            abbreviation: response.data.abbreviation,
+            country: response.data.countryName
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "API Error ❌" });
+    }
+});
+
+
 // Root route
 app.get('/', (req, res) => {
   res.send('Welcome to TripSync API');
