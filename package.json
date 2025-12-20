@@ -1,0 +1,22 @@
+{
+  "name": "tripsync",
+  "version": "1.0.0",
+  "description": "TripSync: Plan, Pack, and Go - Travel management web application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js"
+  },
+  "keywords": ["tripsync", "travel", "management", "mern"],
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "7.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}

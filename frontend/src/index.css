@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Sora:wght@400;600;700&display=swap");
+
+:root {
+  --heading-font: "Sora", "Trebuchet MS", sans-serif;
+  --body-font: "DM Sans", "Helvetica Neue", sans-serif;
+  --ink: #0f1b2d;
+  --slate: #4a5568;
+  --sea-strong: #0f5b56;
+  --sea: #1d8c7d;
+  --sand: #fef6ea;
+  --mist: #eef5f4;
+  --shadow: 0 30px 60px rgba(15, 23, 42, 0.12);
+  --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--body-font);
+  color: var(--ink);
+  line-height: 1.6;
+  background:
+    radial-gradient(circle at 12% 15%, rgba(29, 140, 125, 0.18), transparent 40%),
+    radial-gradient(circle at 85% 12%, rgba(245, 158, 84, 0.18), transparent 45%),
+    linear-gradient(135deg, #fefcf7 0%, #f2f7f6 45%, #f6f9ff 100%);
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--heading-font);
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.trip-buttons button {
+  margin-right: 10px;
+}
+
+.input-box {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: #fff;
+  width: 100%;
+}
+
+.trip-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn-create,
+.btn-duplicate,
+.btn-delete,
+.btn-edit,
+.btn-cancel {
+  border: none;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-create {
+  background: linear-gradient(120deg, #0f5b56, #1d8c7d);
+  color: #fff;
+  box-shadow: 0 10px 20px rgba(15, 91, 86, 0.2);
+}
+
+.btn-duplicate {
+  background: rgba(29, 140, 125, 0.15);
+  color: var(--sea-strong);
+}
+
+.btn-edit {
+  background: rgba(245, 158, 84, 0.2);
+  color: #7a3b0a;
+}
+
+.btn-delete {
+  background: rgba(220, 38, 38, 0.15);
+  color: #991b1b;
+}
+
+.btn-cancel {
+  background: rgba(15, 23, 42, 0.1);
+  color: var(--ink);
+}
