@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 import React, { useState } from "react";
 import TripsDashboard from "./components/TripsDashboard";
@@ -34,6 +35,12 @@ const content = {
     tzZone: "Zona"
   }
 };
+=======
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import TripsDashboard from "./components/TripsDashboard";
+import TripDetails from "./components/TripDetails"; // We will create this below
+>>>>>>> 0939f1b (Fixed FR-4 and FR-13: Added budget and trip details features)
 
 function App() {
   const [lang, setLang] = useState("en");
@@ -46,6 +53,7 @@ function App() {
   };
 
   return (
+<<<<<<< HEAD
     <div className="main-container">
       {/* Language Switch Card */}
       <div className="glass-card">
@@ -78,8 +86,19 @@ function App() {
 
         <TripsDashboard />
       </div>
+=======
+    <div>
+      <Routes>
+        <Route path="/" element={<TripsDashboard />} />
+        <Route path="/trip/:id" element={<TripDetails />} />
+      </Routes>
+>>>>>>> 0939f1b (Fixed FR-4 and FR-13: Added budget and trip details features)
     </div>
   );
 }
 
+<<<<<<< HEAD
 export default App;
+=======
+export default App;
+>>>>>>> 0939f1b (Fixed FR-4 and FR-13: Added budget and trip details features)

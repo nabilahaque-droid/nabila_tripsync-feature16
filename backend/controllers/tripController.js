@@ -42,7 +42,22 @@ exports.getPastTrips = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
-
+// [NEW] FR-1: Update Trip (Edit)
+exports.updateTrip = async (req, res) => {
+  try {
+    const { id } = req.params;
+    // { new: true } returns the updated document so we can send it back to frontend
+    const updatedTrip = await Trip.findByIdAndUpdate(id, req.body, { new: true });
+    
+    if (!updatedTrip) {
+      return res.status(404).json({ message: "Trip not found" });
+    }
+    
+    res.status(200).json(updatedTrip);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
 // -----------------------------
 // FR-3: Duplicate Trip
 // -----------------------------
